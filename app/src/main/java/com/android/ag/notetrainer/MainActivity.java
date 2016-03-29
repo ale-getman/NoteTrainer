@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     public Locale local;
     public SimpleDateFormat df;
+    public static DatabaseHelper mDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         df = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss",local);
 
         initTabs();
+
+        mDatabaseHelper = new DatabaseHelper(this, DatabaseHelper.DATABASE_NAME, null, DatabaseHelper.DATABASE_VERSION);
     }
 
     private void initTabs() {
