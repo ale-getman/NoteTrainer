@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     public Locale local;
     public SimpleDateFormat df;
     public static DatabaseHelper mDatabaseHelper;
+    public static int check_point[] = {1,1,1,1,1,1};
+    public static int check_point_progress_retreat[] = {0,0,0,0,0,0};
+    public static int check_point_progress_weight[] = {0,0,0,0,0,0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
