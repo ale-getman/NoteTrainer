@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/task_1"
-            android:src="@drawable/common_ic_googleplayservices" />
+            android:src="@drawable/common_ic_googleplayservices"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -21,6 +21,26 @@
             android:layout_weight="1"
             android:src="@drawable/common_ic_googleplayservices"
             android:id="@+id/task_2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Статистика"
+            android:id="@+id/stat_task_1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Статистика"
+            android:id="@+id/stat_task_2" />
 
     </LinearLayout>
 
@@ -47,6 +67,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Статистика"
+            android:id="@+id/stat_task_3"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Статистика"
+            android:id="@+id/stat_task_4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
@@ -63,6 +103,26 @@
             android:layout_weight="1"
             android:src="@drawable/common_ic_googleplayservices"
             android:id="@+id/task_6" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Статистика"
+            android:id="@+id/stat_task_5"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Статистика"
+            android:id="@+id/stat_task_6" />
 
     </LinearLayout>
 
