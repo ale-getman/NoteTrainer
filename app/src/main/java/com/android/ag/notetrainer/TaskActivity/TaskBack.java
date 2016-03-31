@@ -66,7 +66,7 @@ public class TaskBack extends Activity {
             task[5].setBackground(getResources().getDrawable(R.drawable.tyga_verhnego_bloka));
         }
 
-        text_task[0].setText("Горизонтальый жим лежа");
+        text_task[0].setText("Горизонтальный жим лежа");
         text_task[1].setText("Разводка гантелей");
         text_task[2].setText("Жим гантелей");
         text_task[3].setText("Становая тяга");

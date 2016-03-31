@@ -24,6 +24,7 @@ import com.android.ag.notetrainer.DatabaseHelper;
 import com.android.ag.notetrainer.MainActivity;
 import com.android.ag.notetrainer.R;
 import com.android.ag.notetrainer.TaskActivity.TaskHands;
+import com.android.ag.notetrainer.TaskActivity.TaskLegs;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -108,7 +109,7 @@ public class FragmentLegs extends AbstractTabFragment {
                 text_id = (TextView) parent.findViewById(R.id.id_column);
                 text_data = (TextView) parent.findViewById(R.id.data_trainer);
 
-                intent = new Intent(frg_context, TaskHands.class);
+                intent = new Intent(frg_context, TaskLegs.class);
                 intent.putExtra("id",text_id.getText().toString());
                 intent.putExtra("data", text_data.getText().toString());
                 startActivity(intent);
