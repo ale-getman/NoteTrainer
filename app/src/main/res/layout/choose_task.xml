@@ -1,130 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e2e2e2">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#e2e2e2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пробный текст"
+            android:id="@+id/text_task_1"
+            android:gravity="center"/>
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/task_1"
-            android:src="@drawable/common_ic_googleplayservices"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/common_ic_googleplayservices"
-            android:id="@+id/task_2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/task_1"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Статистика"
             android:id="@+id/stat_task_1"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пробный текст"
+            android:id="@+id/text_task_2"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/task_2" />
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Статистика"
             android:id="@+id/stat_task_2" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пробный текст"
+            android:id="@+id/text_task_3"
+            android:gravity="center"/>
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/common_ic_googleplayservices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/task_3" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/common_ic_googleplayservices"
-            android:id="@+id/task_4" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Статистика"
             android:id="@+id/stat_task_3"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пробный текст"
+            android:id="@+id/text_task_4"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/task_4" />
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Статистика"
             android:id="@+id/stat_task_4" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пробный текст"
+            android:id="@+id/text_task_5"
+            android:gravity="center"/>
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/common_ic_googleplayservices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/task_5" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/common_ic_googleplayservices"
-            android:id="@+id/task_6" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Статистика"
             android:id="@+id/stat_task_5"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пробный текст"
+            android:id="@+id/text_task_6"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/task_6" />
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Статистика"
             android:id="@+id/stat_task_6" />
 
-    </LinearLayout>
-
-
 </LinearLayout>
+
+</ScrollView>

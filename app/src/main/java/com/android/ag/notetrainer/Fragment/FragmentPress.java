@@ -37,7 +37,7 @@ public class FragmentPress extends AbstractTabFragment {
         FragmentPress fragment = new FragmentPress();
         fragment.setArguments(args);
         fragment.setContext(context);
-        fragment.setTitle(context.getString(R.string.press));
+        //fragment.setTitle(context.getString(R.string.press));
         frg_context = context;
 
         return fragment;

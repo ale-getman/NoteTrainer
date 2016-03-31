@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.android.ag.notetrainer.MainActivity;
 import com.android.ag.notetrainer.R;
@@ -21,6 +22,7 @@ public class TaskHands extends Activity {
 
     public ImageButton task[] = new ImageButton[6];
     public Button stat_task[] = new Button[6];
+    public TextView text_task[] = new TextView[6];
     public Intent intent;
     public String text_id,text_data;
     public String index_set;
@@ -39,6 +41,38 @@ public class TaskHands extends Activity {
         task[3] = (ImageButton) findViewById(R.id.task_4);
         task[4] = (ImageButton) findViewById(R.id.task_5);
         task[5] = (ImageButton) findViewById(R.id.task_6);
+
+        text_task[0] = (TextView) findViewById(R.id.text_task_1);
+        text_task[1] = (TextView) findViewById(R.id.text_task_2);
+        text_task[2] = (TextView) findViewById(R.id.text_task_3);
+        text_task[3] = (TextView) findViewById(R.id.text_task_4);
+        text_task[4] = (TextView) findViewById(R.id.text_task_5);
+        text_task[5] = (TextView) findViewById(R.id.text_task_6);
+
+        final int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            task[0].setBackgroundDrawable(getResources().getDrawable(R.drawable.uzkii_jim));
+            task[1].setBackgroundDrawable(getResources().getDrawable(R.drawable.podem_stoya));
+            task[2].setBackgroundDrawable(getResources().getDrawable(R.drawable.france_jim));
+            task[3].setBackgroundDrawable(getResources().getDrawable(R.drawable.molotki));
+            task[4].setBackgroundDrawable(getResources().getDrawable(R.drawable.razgib_triceps));
+            task[5].setBackgroundDrawable(getResources().getDrawable(R.drawable.jum_scotta));
+
+        } else {
+            task[0].setBackground(getResources().getDrawable(R.drawable.uzkii_jim));
+            task[1].setBackground(getResources().getDrawable(R.drawable.podem_stoya));
+            task[2].setBackground(getResources().getDrawable(R.drawable.france_jim));
+            task[3].setBackground(getResources().getDrawable(R.drawable.molotki));
+            task[4].setBackground(getResources().getDrawable(R.drawable.razgib_triceps));
+            task[5].setBackground(getResources().getDrawable(R.drawable.jum_scotta));
+        }
+
+        text_task[0].setText("Жим штанги узким хватом");
+        text_task[1].setText("Подъем стоя на бицепс");
+        text_task[2].setText("Французский жим");
+        text_task[3].setText("Молотки");
+        text_task[4].setText("Разгибание на трицепс");
+        text_task[5].setText("Жим на скамье Скотта");
 
         stat_task[0] = (Button) findViewById(R.id.stat_task_1);
         stat_task[1] = (Button) findViewById(R.id.stat_task_2);

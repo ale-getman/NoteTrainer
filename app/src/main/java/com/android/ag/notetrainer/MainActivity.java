@@ -38,5 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.gym);
+        tabLayout.getTabAt(1).setIcon(R.drawable.people);
+        tabLayout.getTabAt(2).setIcon(R.drawable.medical);
+        tabLayout.getTabAt(3).setIcon(R.drawable.gym_1);
+
     }
 }

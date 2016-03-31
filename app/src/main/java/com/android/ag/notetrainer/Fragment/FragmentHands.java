@@ -57,7 +57,7 @@ public class FragmentHands extends AbstractTabFragment {
         FragmentHands fragment = new FragmentHands();
         fragment.setArguments(args);
         fragment.setContext(context);
-        fragment.setTitle(context.getString(R.string.hands));
+        //fragment.setTitle(context.getString(R.string.hands));
         frg_context = context;
 
         return fragment;
