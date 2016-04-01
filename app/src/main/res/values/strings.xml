@@ -5,4 +5,13 @@
     <string name="legs">Ноги</string>
     <string name="back">Тело</string>
     <string name="press">Пресс</string>
+
+    <string-array name="screen_array">
+        <item>Screen 1</item>
+        <item>Screen 2</item>
+        <item>Screen 3</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
 </resources>
