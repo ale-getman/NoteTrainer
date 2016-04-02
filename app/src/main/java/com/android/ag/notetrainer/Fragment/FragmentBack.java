@@ -1,7 +1,10 @@
 package com.android.ag.notetrainer.Fragment;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -25,6 +29,8 @@ import com.android.ag.notetrainer.MainActivity;
 import com.android.ag.notetrainer.R;
 import com.android.ag.notetrainer.TaskActivity.TaskBack;
 import com.android.ag.notetrainer.TaskActivity.TaskHands;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,6 +58,10 @@ public class FragmentBack extends AbstractTabFragment{
 
     public Intent intent;
     public TextView text_id,text_data;
+
+    public int delRow;
+    public Button acceptDel;
+    public String textBtnDel;
 
     public static FragmentBack getInstance(Context context) {
         Bundle args = new Bundle();
@@ -83,6 +93,7 @@ public class FragmentBack extends AbstractTabFragment{
         }
         sdb = MainActivity.mDatabaseHelper.getWritableDatabase();
 
+        acceptDel = (Button) view.findViewById(R.id.acceptDel);
         listView = (ListView) view.findViewById(R.id.list);
         local = new Locale("ru","RU");
         df = new SimpleDateFormat("dd.MM.yyyy",local);
@@ -110,7 +121,7 @@ public class FragmentBack extends AbstractTabFragment{
                 text_data = (TextView) parent.findViewById(R.id.data_trainer);
 
                 intent = new Intent(frg_context, TaskBack.class);
-                intent.putExtra("id",text_id.getText().toString());
+                intent.putExtra("id", text_id.getText().toString());
                 intent.putExtra("data", text_data.getText().toString());
                 startActivity(intent);
             }
@@ -119,14 +130,26 @@ public class FragmentBack extends AbstractTabFragment{
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 text_id = (TextView) parent.findViewById(R.id.id_column);
-                int delRow = sdb.delete(MainActivity.mDatabaseHelper.TABLE_NAME[2], DatabaseHelper._ID + " = " + text_id.getText().toString(), null);
-                Log.d(TAG, "delRow: " + delRow);
-                Log.d(TAG, "text_id: " + text_id.getText().toString());
-                CreateList();
+                text_data = (TextView) parent.findViewById(R.id.data_trainer);
+
+                acceptDel.setVisibility(View.VISIBLE);
+                textBtnDel = text_data.getText().toString();
+                acceptDel.setText("Подтвердить удаление: " + textBtnDel);
+
                 return true;
             }
         });
 
+        acceptDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delRow = sdb.delete(MainActivity.mDatabaseHelper.TABLE_NAME[2], DatabaseHelper._ID + " = " + text_id.getText().toString(), null);
+                acceptDel.setVisibility(View.GONE);
+                Log.d(TAG, "delRow: " + delRow);
+                Log.d(TAG, "text_id: " + text_id.getText().toString());
+                CreateList();
+            }
+        });
         return view;
     }
 

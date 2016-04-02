@@ -6,12 +6,29 @@
     <string name="back">Тело</string>
     <string name="press">Пресс</string>
 
-    <string-array name="screen_array">
-        <item>Screen 1</item>
-        <item>Screen 2</item>
-        <item>Screen 3</item>
-    </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
+    <string-array name="name_task">
+        <item>Жим штанги узким хватом</item>
+        <item>Подъем стоя на бицепс</item>
+        <item>Французский жим</item>
+        <item>Молотки</item>
+        <item>Разгибание на трицепс</item>
+        <item>Жим на скамье Скотта</item>
+        <item>Армейский жим</item>
+        <item>Жим на икры</item>
+        <item>Шраги</item>
+        <item>Приседание</item>
+        <item>Тяга к подбородку</item>
+        <item>Жим платформы</item>
+        <item>Горизонтальный жим лежа</item>
+        <item>Разводка гантелей</item>
+        <item>Жим гантелей</item>
+        <item>Становая тяга</item>
+        <item>Тяга штанги к поясу</item>
+        <item>Тяга верхнего блока</item>
+    </string-array>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
 </resources>

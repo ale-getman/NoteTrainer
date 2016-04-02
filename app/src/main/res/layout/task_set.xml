@@ -90,20 +90,42 @@
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
-    <ImageButton
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/common_ic_googleplayservices"
-        android:id="@+id/accept_step"
-        android:gravity="center_vertical"
-        android:layout_gravity="center_horizontal" />
+        android:orientation="horizontal">
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_media_rew"
+            android:id="@+id/back_step"
+            android:background="@drawable/btn_style"
+            android:gravity="center_vertical"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_media_ff"
+            android:id="@+id/accept_step"
+            android:background="@drawable/btn_style"
+            android:gravity="center_vertical"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/common_ic_googleplayservices"
+        android:src="@android:drawable/ic_menu_upload"
         android:id="@+id/end_set"
+        android:background="@drawable/btn_style"
         android:gravity="center_vertical"
+        android:layout_margin="2dp"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

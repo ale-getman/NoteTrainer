@@ -18,7 +18,7 @@ public class TaskSet extends Activity {
     private static final int LAYOUT = R.layout.task_set;
     public SeekBar retreat_seek, weight_seek;
     public TextView retreat_number, weight_number, number_step;
-    public ImageButton accept_step, end_set;
+    public ImageButton accept_step, back_step, end_set;
     public int interval;
     public String text_id,text_data,name_table, index_set;
     public int count_steps = 1;
@@ -42,9 +42,9 @@ public class TaskSet extends Activity {
         retreat_number = (TextView) findViewById(R.id.retreat_number);
         weight_number = (TextView) findViewById(R.id.weight_number);
         number_step = (TextView) findViewById(R.id.number_step);
-        number_step.setText("Подход : " + count_steps);
 
         accept_step = (ImageButton) findViewById(R.id.accept_step);
+        back_step = (ImageButton) findViewById(R.id.back_step);
         end_set = (ImageButton) findViewById(R.id.end_set);
 
         interval = 5;
@@ -82,24 +82,33 @@ public class TaskSet extends Activity {
                 break;
         }
 
+        number_step.setText("Подход : " + count_steps);
+
         retreat_number.setText(retreat_seek.getProgress()+"");
         weight_number.setText(weight_seek.getProgress()+"");
 
         accept_step.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(count_steps <= 4)
-                {
-                    Toast.makeText(getApplicationContext(),"Подход номер : " + count_steps + " добавлен.", Toast.LENGTH_SHORT).show();
+                if (count_steps <= 4) {
+                    Toast.makeText(getApplicationContext(), "Подход номер : " + count_steps + " добавлен.", Toast.LENGTH_SHORT).show();
                     updateRowOnBase();
-                }
-                else
-                {
+                } else {
                     retreat_seek.setProgress(0);
                     weight_seek.setProgress(0);
                     retreat_number.setText("#");
                     weight_number.setText("#");
                     Toast.makeText(getApplicationContext(), "Это был последний.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        back_step.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(count_steps!=1) {
+                    count_steps--;
+                    number_step.setText("Подход : " + count_steps);
                 }
             }
         });

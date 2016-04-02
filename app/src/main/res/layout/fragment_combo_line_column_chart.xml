@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <lecho.lib.hellocharts.view.ComboLineColumnChartView
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </lecho.lib.hellocharts.view.ComboLineColumnChartView>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/radioGroup1"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAX"
+            android:checked="true"
+            android:buttonTint="#e3e3e3"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="1"
+            android:id="@+id/radio_max"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AVG"
+            android:buttonTint="#e3e3e3"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/radio_avg"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MIN"
+            android:buttonTint="#e3e3e3"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/radio_min"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUM"
+            android:buttonTint="#e3e3e3"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/radio_sum"/>
+
+    </RadioGroup>
+</LinearLayout>

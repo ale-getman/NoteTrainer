@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -52,6 +53,10 @@ public class FragmentHands extends AbstractTabFragment {
     public Intent intent;
     public TextView text_id,text_data;
 
+    public int delRow;
+    public Button acceptDel;
+    public String textBtnDel;
+
     public static FragmentHands getInstance(Context context) {
         Bundle args = new Bundle();
         FragmentHands fragment = new FragmentHands();
@@ -83,6 +88,7 @@ public class FragmentHands extends AbstractTabFragment {
 
         sdb = MainActivity.mDatabaseHelper.getWritableDatabase();
 
+        acceptDel = (Button) view.findViewById(R.id.acceptDel);
         listView = (ListView) view.findViewById(R.id.list);
         local = new Locale("ru","RU");
         df = new SimpleDateFormat("dd.MM.yyyy",local);
@@ -110,7 +116,7 @@ public class FragmentHands extends AbstractTabFragment {
                 text_data = (TextView) parent.findViewById(R.id.data_trainer);
 
                 intent = new Intent(frg_context, TaskHands.class);
-                intent.putExtra("id",text_id.getText().toString());
+                intent.putExtra("id", text_id.getText().toString());
                 intent.putExtra("data", text_data.getText().toString());
                 startActivity(intent);
             }
@@ -119,11 +125,23 @@ public class FragmentHands extends AbstractTabFragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 text_id = (TextView) parent.findViewById(R.id.id_column);
-                int delRow = sdb.delete(MainActivity.mDatabaseHelper.TABLE_NAME[0], DatabaseHelper._ID + " = " + text_id.getText().toString(), null);
+                text_data = (TextView) parent.findViewById(R.id.data_trainer);
+
+                acceptDel.setVisibility(View.VISIBLE);
+                textBtnDel = text_data.getText().toString();
+                acceptDel.setText("Подтвердить удаление: " + textBtnDel);
+                return true;
+            }
+        });
+
+        acceptDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delRow = sdb.delete(MainActivity.mDatabaseHelper.TABLE_NAME[0], DatabaseHelper._ID + " = " + text_id.getText().toString(), null);
+                acceptDel.setVisibility(View.GONE);
                 Log.d(TAG, "delRow: " + delRow);
                 Log.d(TAG, "text_id: " + text_id.getText().toString());
                 CreateList();
-                return true;
             }
         });
 

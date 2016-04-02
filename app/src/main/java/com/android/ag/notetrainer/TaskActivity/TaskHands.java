@@ -21,7 +21,6 @@ public class TaskHands extends Activity {
     private static final int LAYOUT = R.layout.choose_task;
 
     public ImageButton task[] = new ImageButton[6];
-    public Button stat_task[] = new Button[6];
     public TextView text_task[] = new TextView[6];
     public Intent intent;
     public String text_id,text_data;
@@ -73,13 +72,6 @@ public class TaskHands extends Activity {
         text_task[3].setText("Молотки");
         text_task[4].setText("Разгибание на трицепс");
         text_task[5].setText("Жим на скамье Скотта");
-
-        stat_task[0] = (Button) findViewById(R.id.stat_task_1);
-        stat_task[1] = (Button) findViewById(R.id.stat_task_2);
-        stat_task[2] = (Button) findViewById(R.id.stat_task_3);
-        stat_task[3] = (Button) findViewById(R.id.stat_task_4);
-        stat_task[4] = (Button) findViewById(R.id.stat_task_5);
-        stat_task[5] = (Button) findViewById(R.id.stat_task_6);
 
         task[0].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,72 +145,6 @@ public class TaskHands extends Activity {
                 intent = new Intent(TaskHands.this, TaskSet.class);
                 intent.putExtra("id",text_id);
                 intent.putExtra("data",text_data);
-                intent.putExtra("name_table", MainActivity.mDatabaseHelper.TABLE_NAME[0]);
-                intent.putExtra("index_set", index_set);
-                startActivity(intent);
-            }
-        });
-
-        stat_task[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                index_set = "1";
-                intent = new Intent(TaskHands.this, Statistics.class);
-                intent.putExtra("name_table", MainActivity.mDatabaseHelper.TABLE_NAME[0]);
-                intent.putExtra("index_set", index_set);
-                startActivity(intent);
-            }
-        });
-
-        stat_task[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                index_set = "2";
-                intent = new Intent(TaskHands.this, Statistics.class);
-                intent.putExtra("name_table", MainActivity.mDatabaseHelper.TABLE_NAME[0]);
-                intent.putExtra("index_set", index_set);
-                startActivity(intent);
-            }
-        });
-
-        stat_task[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                index_set = "3";
-                intent = new Intent(TaskHands.this, Statistics.class);
-                intent.putExtra("name_table", MainActivity.mDatabaseHelper.TABLE_NAME[0]);
-                intent.putExtra("index_set", index_set);
-                startActivity(intent);
-            }
-        });
-
-        stat_task[3].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                index_set = "4";
-                intent = new Intent(TaskHands.this, Statistics.class);
-                intent.putExtra("name_table", MainActivity.mDatabaseHelper.TABLE_NAME[0]);
-                intent.putExtra("index_set", index_set);
-                startActivity(intent);
-            }
-        });
-
-        stat_task[4].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                index_set = "5";
-                intent = new Intent(TaskHands.this, Statistics.class);
-                intent.putExtra("name_table", MainActivity.mDatabaseHelper.TABLE_NAME[0]);
-                intent.putExtra("index_set", index_set);
-                startActivity(intent);
-            }
-        });
-
-        stat_task[5].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                index_set = "6";
-                intent = new Intent(TaskHands.this, Statistics.class);
                 intent.putExtra("name_table", MainActivity.mDatabaseHelper.TABLE_NAME[0]);
                 intent.putExtra("index_set", index_set);
                 startActivity(intent);
