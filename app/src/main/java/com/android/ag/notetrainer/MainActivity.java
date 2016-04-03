@@ -142,6 +142,10 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("table_name", DatabaseHelper.TABLE_NAME[2]);
                     intent.putExtra("set","6");
                     break;
+                case 18:
+                    intent.putExtra("table_name", DatabaseHelper.DATABASE_TABLE_4);
+                    intent.putExtra("set","1");
+                    break;
             }
             startActivity(intent);
         }

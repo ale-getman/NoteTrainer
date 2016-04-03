@@ -166,9 +166,11 @@ public class TaskSet extends Activity {
         String weight = "SET_" + index_set + "_WEIGHT_" + count_steps;
         String set = "SET_"+index_set;
 
+
         switch (count_steps) {
             case 1:
-                updatedValues.put(set, "+");
+                if(!(name_table.equals(MainActivity.mDatabaseHelper.DATABASE_TABLE_4)))
+                    updatedValues.put(set, "+");
                 updatedValues.put(retreat, retreat_number.getText().toString());
                 updatedValues.put(weight, weight_number.getText().toString());
                 count_steps++;

@@ -127,7 +127,11 @@ public class FragmentHands extends AbstractTabFragment {
                 text_id = (TextView) parent.findViewById(R.id.id_column);
                 text_data = (TextView) parent.findViewById(R.id.data_trainer);
 
-                acceptDel.setVisibility(View.VISIBLE);
+                if(acceptDel.getVisibility()!=View.VISIBLE)
+                    acceptDel.setVisibility(View.VISIBLE);
+                else
+                    acceptDel.setVisibility(View.GONE);
+
                 textBtnDel = text_data.getText().toString();
                 acceptDel.setText("Подтвердить удаление: " + textBtnDel);
                 return true;

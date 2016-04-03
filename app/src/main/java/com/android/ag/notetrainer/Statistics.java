@@ -36,7 +36,7 @@ public class Statistics extends ActionBarActivity {
 
     private static final int LAYOUT = R.layout.statistics;
 
-    public String name_table;
+    public static String name_table;
     public String index_set;
 
     public SQLiteDatabase sdb;
@@ -77,44 +77,54 @@ public class Statistics extends ActionBarActivity {
     }
 
     public Cursor CreateCursor(){
-        Cursor cursor = sdb.query(name_table, new String[]{DatabaseHelper._ID, DatabaseHelper.DATA,
-                        DatabaseHelper.SET_1,
-                        DatabaseHelper.SET_1_RETREAT_1, DatabaseHelper.SET_1_WEIGHT_1,
-                        DatabaseHelper.SET_1_RETREAT_2, DatabaseHelper.SET_1_WEIGHT_2,
-                        DatabaseHelper.SET_1_RETREAT_3, DatabaseHelper.SET_1_WEIGHT_3,
-                        DatabaseHelper.SET_1_RETREAT_4, DatabaseHelper.SET_1_WEIGHT_4,
-                        DatabaseHelper.SET_2,
-                        DatabaseHelper.SET_2_RETREAT_1, DatabaseHelper.SET_2_WEIGHT_1,
-                        DatabaseHelper.SET_2_RETREAT_2, DatabaseHelper.SET_2_WEIGHT_2,
-                        DatabaseHelper.SET_2_RETREAT_3, DatabaseHelper.SET_2_WEIGHT_3,
-                        DatabaseHelper.SET_2_RETREAT_4, DatabaseHelper.SET_2_WEIGHT_4,
-                        DatabaseHelper.SET_3,
-                        DatabaseHelper.SET_3_RETREAT_1, DatabaseHelper.SET_3_WEIGHT_1,
-                        DatabaseHelper.SET_3_RETREAT_2, DatabaseHelper.SET_3_WEIGHT_2,
-                        DatabaseHelper.SET_3_RETREAT_3, DatabaseHelper.SET_3_WEIGHT_3,
-                        DatabaseHelper.SET_3_RETREAT_4, DatabaseHelper.SET_3_WEIGHT_4,
-                        DatabaseHelper.SET_4,
-                        DatabaseHelper.SET_4_RETREAT_1, DatabaseHelper.SET_4_WEIGHT_1,
-                        DatabaseHelper.SET_4_RETREAT_2, DatabaseHelper.SET_4_WEIGHT_2,
-                        DatabaseHelper.SET_4_RETREAT_3, DatabaseHelper.SET_4_WEIGHT_3,
-                        DatabaseHelper.SET_4_RETREAT_4, DatabaseHelper.SET_4_WEIGHT_4,
-                        DatabaseHelper.SET_5,
-                        DatabaseHelper.SET_5_RETREAT_1, DatabaseHelper.SET_5_WEIGHT_1,
-                        DatabaseHelper.SET_5_RETREAT_2, DatabaseHelper.SET_5_WEIGHT_2,
-                        DatabaseHelper.SET_5_RETREAT_3, DatabaseHelper.SET_5_WEIGHT_3,
-                        DatabaseHelper.SET_5_RETREAT_4, DatabaseHelper.SET_5_WEIGHT_4,
-                        DatabaseHelper.SET_6,
-                        DatabaseHelper.SET_6_RETREAT_1, DatabaseHelper.SET_6_WEIGHT_1,
-                        DatabaseHelper.SET_6_RETREAT_2, DatabaseHelper.SET_6_WEIGHT_2,
-                        DatabaseHelper.SET_6_RETREAT_3, DatabaseHelper.SET_6_WEIGHT_3,
-                        DatabaseHelper.SET_6_RETREAT_4, DatabaseHelper.SET_6_WEIGHT_4,},
-                null, null, null, null, DatabaseHelper._ID + " DESC") ;
-
+        Cursor cursor;
+        if(name_table.equals(MainActivity.mDatabaseHelper.DATABASE_TABLE_4)) {
+            cursor = sdb.query(name_table, new String[]{DatabaseHelper._ID, DatabaseHelper.DATA,
+                            DatabaseHelper.SET_1_RETREAT_1, DatabaseHelper.SET_1_WEIGHT_1,
+                            DatabaseHelper.SET_1_RETREAT_2, DatabaseHelper.SET_1_WEIGHT_2,
+                            DatabaseHelper.SET_1_RETREAT_3, DatabaseHelper.SET_1_WEIGHT_3,
+                            DatabaseHelper.SET_1_RETREAT_4, DatabaseHelper.SET_1_WEIGHT_4,},
+                    null, null, null, null, DatabaseHelper._ID + " DESC");
+        }
+        else {
+            cursor = sdb.query(name_table, new String[]{DatabaseHelper._ID, DatabaseHelper.DATA,
+                            DatabaseHelper.SET_1,
+                            DatabaseHelper.SET_1_RETREAT_1, DatabaseHelper.SET_1_WEIGHT_1,
+                            DatabaseHelper.SET_1_RETREAT_2, DatabaseHelper.SET_1_WEIGHT_2,
+                            DatabaseHelper.SET_1_RETREAT_3, DatabaseHelper.SET_1_WEIGHT_3,
+                            DatabaseHelper.SET_1_RETREAT_4, DatabaseHelper.SET_1_WEIGHT_4,
+                            DatabaseHelper.SET_2,
+                            DatabaseHelper.SET_2_RETREAT_1, DatabaseHelper.SET_2_WEIGHT_1,
+                            DatabaseHelper.SET_2_RETREAT_2, DatabaseHelper.SET_2_WEIGHT_2,
+                            DatabaseHelper.SET_2_RETREAT_3, DatabaseHelper.SET_2_WEIGHT_3,
+                            DatabaseHelper.SET_2_RETREAT_4, DatabaseHelper.SET_2_WEIGHT_4,
+                            DatabaseHelper.SET_3,
+                            DatabaseHelper.SET_3_RETREAT_1, DatabaseHelper.SET_3_WEIGHT_1,
+                            DatabaseHelper.SET_3_RETREAT_2, DatabaseHelper.SET_3_WEIGHT_2,
+                            DatabaseHelper.SET_3_RETREAT_3, DatabaseHelper.SET_3_WEIGHT_3,
+                            DatabaseHelper.SET_3_RETREAT_4, DatabaseHelper.SET_3_WEIGHT_4,
+                            DatabaseHelper.SET_4,
+                            DatabaseHelper.SET_4_RETREAT_1, DatabaseHelper.SET_4_WEIGHT_1,
+                            DatabaseHelper.SET_4_RETREAT_2, DatabaseHelper.SET_4_WEIGHT_2,
+                            DatabaseHelper.SET_4_RETREAT_3, DatabaseHelper.SET_4_WEIGHT_3,
+                            DatabaseHelper.SET_4_RETREAT_4, DatabaseHelper.SET_4_WEIGHT_4,
+                            DatabaseHelper.SET_5,
+                            DatabaseHelper.SET_5_RETREAT_1, DatabaseHelper.SET_5_WEIGHT_1,
+                            DatabaseHelper.SET_5_RETREAT_2, DatabaseHelper.SET_5_WEIGHT_2,
+                            DatabaseHelper.SET_5_RETREAT_3, DatabaseHelper.SET_5_WEIGHT_3,
+                            DatabaseHelper.SET_5_RETREAT_4, DatabaseHelper.SET_5_WEIGHT_4,
+                            DatabaseHelper.SET_6,
+                            DatabaseHelper.SET_6_RETREAT_1, DatabaseHelper.SET_6_WEIGHT_1,
+                            DatabaseHelper.SET_6_RETREAT_2, DatabaseHelper.SET_6_WEIGHT_2,
+                            DatabaseHelper.SET_6_RETREAT_3, DatabaseHelper.SET_6_WEIGHT_3,
+                            DatabaseHelper.SET_6_RETREAT_4, DatabaseHelper.SET_6_WEIGHT_4,},
+                    null, null, null, null, DatabaseHelper._ID + " DESC");
+        }
         String set_number = "set_"+index_set;
         String retreat_number = "set_"+index_set+"_retreat_";
         String weight_number = "set_"+index_set+"_weight_";
         String data;
-        String set,set_retreat_1,set_retreat_2,set_retreat_3,set_retreat_4,
+        String set = "",set_retreat_1,set_retreat_2,set_retreat_3,set_retreat_4,
                 set_weight_1,set_weight_2,set_weight_3,set_weight_4;
         int retreat_max,weight_max;
         int retreat_min,weight_min;
@@ -123,7 +133,8 @@ public class Statistics extends ActionBarActivity {
 
         while (cursor.moveToNext()) {
             data = cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATA));
-            set = cursor.getString(cursor.getColumnIndex(set_number));
+            if(!(name_table.equals(MainActivity.mDatabaseHelper.DATABASE_TABLE_4)))
+                set = cursor.getString(cursor.getColumnIndex(set_number));
 
             set_retreat_1 = cursor.getString(cursor.getColumnIndex(retreat_number + "1"));
             set_retreat_2 = cursor.getString(cursor.getColumnIndex(retreat_number + "2"));
@@ -136,7 +147,8 @@ public class Statistics extends ActionBarActivity {
             set_weight_4 = cursor.getString(cursor.getColumnIndex(weight_number + "4"));
 
             Log.d(TAG, "data: " + data);
-            Log.d(TAG, "set_1: " + set);
+            if(!(name_table.equals(MainActivity.mDatabaseHelper.DATABASE_TABLE_4)))
+                Log.d(TAG, "set_1: " + set);
             Log.d(TAG, "set_1_retreat_1: " + set_retreat_1 + " set_1_weight_1: " + set_weight_1);
             Log.d(TAG, "set_1_retreat_2: " + set_retreat_2 + " set_1_weight_2: " + set_weight_2);
             Log.d(TAG, "set_1_retreat_3: " + set_retreat_3 + " set_1_weight_3: " + set_weight_3);
@@ -209,7 +221,10 @@ public class Statistics extends ActionBarActivity {
     public int findSum(int r1, int r2, int r3, int r4, int w1, int w2, int w3, int w4){
         int sum;
 
-        sum = r1*w1 + r2*w2 + r3*w3 + r4*w4;
+        if(name_table.equals(MainActivity.mDatabaseHelper.DATABASE_TABLE_4))
+            sum = r1 + r2 + r3 + r4;
+        else
+            sum = r1*w1 + r2*w2 + r3*w3 + r4*w4;
 
         return sum;
     }
@@ -465,7 +480,10 @@ public class Statistics extends ActionBarActivity {
 
                 values = new ArrayList<SubcolumnValue>();
                 for (int j = 0; j < numSubcolumns; ++j) {
-                    values.add(new SubcolumnValue(randomNumbersTab_w[j][i], ChartUtils.COLOR_VIOLET));
+                    if(name_table.equals(MainActivity.mDatabaseHelper.DATABASE_TABLE_4))
+                        values.add(new SubcolumnValue(randomNumbersTab_r[j][i], ChartUtils.COLOR_VIOLET));
+                    else
+                        values.add(new SubcolumnValue(randomNumbersTab_w[j][i], ChartUtils.COLOR_VIOLET));
                 }
 
                 columns.add(new Column(values));
@@ -487,7 +505,10 @@ public class Statistics extends ActionBarActivity {
             @Override
             public void onColumnValueSelected(int columnIndex, int subcolumnIndex, SubcolumnValue value) {
                 float val = value.getValue();
-                Toast.makeText(getActivity(), "Вес: " + val, Toast.LENGTH_SHORT).show();
+                if(name_table.equals(MainActivity.mDatabaseHelper.DATABASE_TABLE_4))
+                    Toast.makeText(getActivity(), "Повторений: " + val, Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getActivity(), "Вес: " + val, Toast.LENGTH_SHORT).show();
             }
 
             @Override
