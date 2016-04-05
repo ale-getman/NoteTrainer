@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -19,10 +20,14 @@ public class TaskSet extends Activity {
     public SeekBar retreat_seek, weight_seek;
     public TextView retreat_number, weight_number, number_step;
     public ImageButton accept_step, back_step, end_set;
+    public ImageButton minus_retreat, plus_retreat;
+    public ImageButton minus_weight, plus_weight;
     public int interval;
     public String text_id,text_data,name_table, index_set;
     public int count_steps = 1;
     public SQLiteDatabase sdb;
+
+    public boolean action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,11 @@ public class TaskSet extends Activity {
         accept_step = (ImageButton) findViewById(R.id.accept_step);
         back_step = (ImageButton) findViewById(R.id.back_step);
         end_set = (ImageButton) findViewById(R.id.end_set);
+
+        minus_retreat = (ImageButton) findViewById(R.id.minus_retreat);
+        plus_retreat = (ImageButton) findViewById(R.id.plus_retreat);
+        minus_weight = (ImageButton) findViewById(R.id.minus_weight);
+        plus_weight = (ImageButton) findViewById(R.id.plus_weight);
 
         interval = 5;
 
@@ -86,6 +96,45 @@ public class TaskSet extends Activity {
 
         retreat_number.setText(retreat_seek.getProgress()+"");
         weight_number.setText(weight_seek.getProgress()+"");
+
+        minus_retreat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (retreat_seek.getProgress() > 0)
+                    retreat_seek.setProgress(retreat_seek.getProgress() - 1);
+            }
+        });
+        plus_retreat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (retreat_seek.getProgress() < 20)
+                    retreat_seek.setProgress(retreat_seek.getProgress() + 1);
+            }
+        });
+
+        minus_weight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (weight_seek.getProgress() > 0)
+                    weight_seek.setProgress(weight_seek.getProgress() - 1);
+            }
+        });
+        plus_weight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(weight_seek.getProgress() < 100)
+                    weight_seek.setProgress(weight_seek.getProgress() + 1);
+            }
+        });
+
+        plus_weight.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                    if (weight_seek.getProgress() < 100)
+                        weight_seek.setProgress(weight_seek.getProgress() + 1);
+                return true;
+            }
+        });
 
         accept_step.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,9 +191,10 @@ public class TaskSet extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //weight_number.setText(String.valueOf(seekBar.getProgress()));
-                progress = (((int)Math.round(progress/interval))*interval);
+                /*progress = (((int)Math.round(progress/interval))*interval);
                 seekBar.setProgress(progress);
-                weight_number.setText(progress + "");
+                weight_number.setText(progress + "");*/
+                weight_number.setText(String.valueOf(seekBar.getProgress()));
             }
 
             @Override
