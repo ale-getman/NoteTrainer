@@ -122,7 +122,7 @@ public class TaskSet extends Activity {
         plus_weight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(weight_seek.getProgress() < 100)
+                if(weight_seek.getProgress() < 150)
                     weight_seek.setProgress(weight_seek.getProgress() + 1);
             }
         });
@@ -130,7 +130,7 @@ public class TaskSet extends Activity {
         plus_weight.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                    if (weight_seek.getProgress() < 100)
+                    if (weight_seek.getProgress() < 150)
                         weight_seek.setProgress(weight_seek.getProgress() + 1);
                 return true;
             }

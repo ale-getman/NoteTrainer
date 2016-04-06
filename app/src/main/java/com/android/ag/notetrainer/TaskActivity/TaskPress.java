@@ -19,6 +19,7 @@ public class TaskPress extends Activity {
 
     public ImageButton task[] = new ImageButton[6];
     public TextView text_task[] = new TextView[6];
+    public View view[] = new View[6];
     public Intent intent;
     public String text_id,text_data;
     public String index_set;
@@ -45,10 +46,18 @@ public class TaskPress extends Activity {
         text_task[4] = (TextView) findViewById(R.id.text_task_5);
         text_task[5] = (TextView) findViewById(R.id.text_task_6);
 
+        view[0] = (View) findViewById(R.id.view_1);
+        view[1] = (View) findViewById(R.id.view_2);
+        view[2] = (View) findViewById(R.id.view_3);
+        view[3] = (View) findViewById(R.id.view_4);
+        view[4] = (View) findViewById(R.id.view_5);
+        view[5] = (View) findViewById(R.id.view_6);
+
         for(int i = 1; i < 6; i++)
         {
             task[i].setVisibility(View.GONE);
             text_task[i].setVisibility(View.GONE);
+            view[i].setVisibility(View.GONE);
         }
 
         final int sdk = android.os.Build.VERSION.SDK_INT;

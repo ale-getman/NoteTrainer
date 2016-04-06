@@ -70,10 +70,15 @@ public class Statistics extends ActionBarActivity {
         sdb = MainActivity.mDatabaseHelper.getWritableDatabase();
         CreateCursor();
 
-        if(retreat_array_max.size() != 0)
+        if(retreat_array_max.size() != 0) {
             if (savedInstanceState == null) {
                 getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
             }
+        }
+        else {
+            Toast.makeText(this, "Нет данных для отображения.", Toast.LENGTH_LONG).show();
+            onBackPressed();
+        }
     }
 
     public Cursor CreateCursor(){
