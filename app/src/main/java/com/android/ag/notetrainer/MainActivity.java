@@ -1,20 +1,17 @@
 package com.android.ag.notetrainer;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -101,13 +98,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        RelativeLayout relativeLayout;
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
+            relativeLayout = (RelativeLayout) view.findViewById(R.id.relativeLayout);
             if (dataList.get(position).getTitle() == null)
             switch (position){
                 case 1:
                     intent.putExtra("table_name", DatabaseHelper.TABLE_NAME[0]);
-                    intent.putExtra("set","1");
+                    intent.putExtra("set", "1");
                     break;
                 case 2:
                     intent.putExtra("table_name", DatabaseHelper.TABLE_NAME[0]);
