@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ public class TaskSet extends Activity {
     public ImageButton accept_step, back_step, end_set;
     public ImageButton minus_retreat, plus_retreat;
     public ImageButton minus_weight, plus_weight;
+    //public CheckBox half_weight;
     public int interval;
     public String text_id,text_data,name_table, index_set;
     public int count_steps = 1;
@@ -65,9 +68,12 @@ public class TaskSet extends Activity {
         minus_weight = (ImageButton) findViewById(R.id.minus_weight);
         plus_weight = (ImageButton) findViewById(R.id.plus_weight);
 
+        //half_weight = (CheckBox) findViewById(R.id.half_weight);
+
         interval = 5;
 
-        CreateCursor();
+        if(count_steps==1)
+            CreateCursor();
 
         switch (index_set) {
             case "1":
@@ -105,7 +111,17 @@ public class TaskSet extends Activity {
         number_step.setText("Подход : " + count_steps);
 
         retreat_number.setText(retreat_seek.getProgress()+"");
-        weight_number.setText(weight_seek.getProgress()+"");
+        weight_number.setText(weight_seek.getProgress() + "");
+
+        /*half_weight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                    //
+                else
+                    //
+            }
+        });*/
 
         minus_retreat.setOnClickListener(new View.OnClickListener() {
             @Override
