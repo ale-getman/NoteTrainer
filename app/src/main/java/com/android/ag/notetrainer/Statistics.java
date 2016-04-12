@@ -89,7 +89,7 @@ public class Statistics extends ActionBarActivity {
                             DatabaseHelper.SET_1_RETREAT_2, DatabaseHelper.SET_1_WEIGHT_2,
                             DatabaseHelper.SET_1_RETREAT_3, DatabaseHelper.SET_1_WEIGHT_3,
                             DatabaseHelper.SET_1_RETREAT_4, DatabaseHelper.SET_1_WEIGHT_4,},
-                    null, null, null, null, DatabaseHelper._ID + " DESC");
+                    null, null, null, null, null);
         }
         else {
             cursor = sdb.query(name_table, new String[]{DatabaseHelper._ID, DatabaseHelper.DATA,
@@ -123,7 +123,7 @@ public class Statistics extends ActionBarActivity {
                             DatabaseHelper.SET_6_RETREAT_2, DatabaseHelper.SET_6_WEIGHT_2,
                             DatabaseHelper.SET_6_RETREAT_3, DatabaseHelper.SET_6_WEIGHT_3,
                             DatabaseHelper.SET_6_RETREAT_4, DatabaseHelper.SET_6_WEIGHT_4,},
-                    null, null, null, null, DatabaseHelper._ID + " DESC");
+                    null, null, null, null, null);
         }
         String set_number = "set_"+index_set;
         String retreat_number = "set_"+index_set+"_retreat_";
@@ -159,7 +159,7 @@ public class Statistics extends ActionBarActivity {
             Log.d(TAG, "set_1_retreat_3: " + set_retreat_3 + " set_1_weight_3: " + set_weight_3);
             Log.d(TAG, "set_1_retreat_4: " + set_retreat_4 + " set_1_weight_4: " + set_weight_4);
 
-            if(set_retreat_1!=null) {
+            if(set_retreat_1!=null && set_retreat_2!=null && set_retreat_3!=null && set_retreat_4!=null) {
                 number_asix++;
                 osX_array.add(data);
                 retreat_max = findMax(Integer.valueOf(set_retreat_1),Integer.valueOf(set_retreat_2),

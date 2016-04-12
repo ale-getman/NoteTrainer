@@ -72,9 +72,6 @@ public class TaskSet extends Activity {
 
         interval = 5;
 
-        if(count_steps==1)
-            CreateCursor();
-
         switch (index_set) {
             case "1":
                 count_steps = MainActivity.check_point[0];
@@ -107,6 +104,8 @@ public class TaskSet extends Activity {
                 weight_seek.setProgress(MainActivity.check_point_progress_weight[5]);
                 break;
         }
+
+        CreateCursor();
 
         number_step.setText("Подход : " + count_steps);
 
@@ -392,7 +391,7 @@ public class TaskSet extends Activity {
             Log.d(TAG, "set_1_retreat_3: " + set_retreat_3 + " set_1_weight_3: " + set_weight_3);
             Log.d(TAG, "set_1_retreat_4: " + set_retreat_4 + " set_1_weight_4: " + set_weight_4);
 
-            if(set_retreat_1!=null) {
+            if(set_retreat_1!=null && set_retreat_2!=null && set_retreat_3!=null && set_retreat_4!=null) {
                 retreat_max = findMax(Integer.valueOf(set_retreat_1),Integer.valueOf(set_retreat_2),
                         Integer.valueOf(set_retreat_3),Integer.valueOf(set_retreat_4),
                         Integer.valueOf(set_weight_1),Integer.valueOf(set_weight_2),

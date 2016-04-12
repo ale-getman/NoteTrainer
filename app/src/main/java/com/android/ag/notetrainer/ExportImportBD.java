@@ -20,7 +20,7 @@ public class ExportImportBD extends Activity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
 //creating a new folder for the database to be backuped to
-        File direct = new File(Environment.getExternalStorageDirectory() + "/Exam Creator");
+        File direct = new File(Environment.getExternalStorageDirectory() + "/NoteTrainerBD");
 
         if(!direct.exists())
         {
